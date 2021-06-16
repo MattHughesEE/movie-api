@@ -12,6 +12,14 @@ blocks:
           value: natalieenv.cudcheitntkq.us-east-1.rds.amazonaws.com
         - name: RAILS_ENV
           value: test
+        - name: RDS_DATABASE
+          value: natalieenv
+        - name: RDS_USERNAME
+          value: mrh1127
+        - name: RDS_PASSWORD
+          value: lola1799
+        - name: RDS_HOST
+          value: natalieenv.cudcheitntkq.us-east-1.rds.amazonaws.com
       jobs:
         - name: Test
           commands:
