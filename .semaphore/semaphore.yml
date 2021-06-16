@@ -16,6 +16,7 @@ blocks:
             - sem-version ruby 2.6.3 
             - checkout
             - cache restore
+            - gem install bundler
             - bundle install --path .bundle
             - cache store
             - sem-service start postgres
