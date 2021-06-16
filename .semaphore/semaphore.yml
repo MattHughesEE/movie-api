@@ -29,6 +29,6 @@ blocks:
             - cache restore
             - bundle install --deployment --path vendor/bundle
             - cache store
-            - 'bundle exec rake db:migrate'
+            - 'RAILS_ENV=production bundle exec rake db:migrate'
             - 'bundle exec rake db:setup'
             - bundle exec rspec
