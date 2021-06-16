@@ -20,6 +20,8 @@ blocks:
             - bundle install --path .bundle
             - cache store
             - sem-service start postgres
+            - psql -U postgres -h localhost -c "CREATE USER semaphore WITH PASSWORD 'lola1799';"
+            - psql -U postgres -h localhost -c "ALTER USER semaphore WITH SUPERUSER;"
             - 'bundle exec rake db:setup'
 promotions:
   - name: Deploy to Elastic Beanstalk Environment
