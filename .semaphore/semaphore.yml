@@ -1,10 +1,15 @@
 version: v1.0
+<<<<<<< HEAD
 name: Testing Server Pipeline
+=======
+name: Test MyApp
+>>>>>>> 61af40e005eb58d59cbfb5ba421a5de44cca8881
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
+<<<<<<< HEAD
   - name: Setup
     dependencies: []
     task:
@@ -34,3 +39,34 @@ blocks:
 promotions:
   - name: Deploy to Elastic Beanstalk Environment
     pipeline_file: deploy.yml
+=======
+  - name: Test
+    task:
+      env_vars:
+        - name: DATABASE_URL
+          value: 'postgresql:://natalieenv.cudcheitntkq.us-east-1.rds.amazonaws.com:5432/ebdb?user=mrh1127&password=lola1799'
+        - name: RAILS_ENV
+          value: test
+        - name: RDS_DATABASE
+          value: natalieenv
+        - name: RDS_USERNAME
+          value: mrh1127
+        - name: RDS_PASSWORD
+          value: lola1799
+        - name: RDS_HOST
+          value: natalieenv.cudcheitntkq.us-east-1.rds.amazonaws.com
+      jobs:
+        - name: Test
+          commands:
+            - checkout
+            - sem-service start postgres 11
+            - sem-version ruby 2.6.5
+            - cache restore
+            - bundle install --deployment --path vendor/bundle
+            - cache store
+            - 'RAILS_ENV=production bundle exec rake db:migrate'
+            - 'bundle exec rake db:setup'
+            - bundle exec rspec
+      secrets:
+        - name: AWS_CREDENTIALS
+>>>>>>> 61af40e005eb58d59cbfb5ba421a5de44cca8881
