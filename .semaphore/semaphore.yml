@@ -18,19 +18,8 @@ blocks:
             - cache restore
             - bundle install
             - cache store
-  - name: Componet Specs
-    dependencies:
-      - Setup
-    tasks:
-      prologue:
-        commands:
-          - sem-version ruby 2.6.3
-          - checkout
-          - cache restore
-          - bundle install
-          - cache store
-          - sem-service start postgres
-          - 'bundle exec rake db:setup'
+            - sem-service start postgres
+            - 'bundle exec rake db:setup'
 promotions:
   - name: Deploy to Elastic Beanstalk Environment
     pipeline_file: deploy.yml
