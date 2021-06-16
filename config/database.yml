@@ -81,6 +81,8 @@ test:
 #
 production:
   <<: *default
-  database: movie_api_production
-  username: movie_api
-  password: <%= ENV['MOVIE_API_DATABASE_PASSWORD'] %>
+  database: <%= ENV['RDS_DATABASE'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOST'] %>
+  port: 5432
