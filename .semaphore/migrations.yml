@@ -8,8 +8,7 @@ blocks:
   - name: Deploy
     task:
       secrets:
-        - name: AWS_Credentials
-        - name: private-repo
+        - name: AWS_CREDENTIALS
       jobs:
         - name: Deploy
           commands:
