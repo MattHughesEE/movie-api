@@ -16,7 +16,7 @@ sem-service start postgres
 psql -U postgres -h localhost -c "CREATE USER semaphore WITH PASSWORD 'lola1799';"
 psql -U postgres -h localhost -c "ALTER USER semaphore WITH SUPERUSER;"
 RAILS_ENV=production bundle exec rake db:create db:structure:load
-RAILS_ENV=production bundle exec rake assets:precompile
+
 
 zip $file_name -9 -y -r . -x "spec/*" "tmp/*" "vendor/bundle/*" ".git/*"
 
