@@ -13,7 +13,7 @@ blocks:
       jobs:
         - name: Install Dependencies and bundle
           commands:
-            - sem-version ruby 2.6.3 
+            - sem-version ruby 2.6.3
             - checkout
             - cache restore
             - gem install bundler
@@ -23,6 +23,9 @@ blocks:
             - psql -U postgres -h localhost -c "CREATE USER semaphore WITH PASSWORD 'lola1799';"
             - psql -U postgres -h localhost -c "ALTER USER semaphore WITH SUPERUSER;"
             - 'bundle exec rake db:setup'
+      env_vars:
+        - name: RDS_DATABASE
+          value: "\t aa1cxbqilw9z1do"
 promotions:
   - name: Perform Migrations
     pipeline_file: migrations.yml
