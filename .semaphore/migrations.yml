@@ -1,0 +1,19 @@
+version: v1.0
+name: Deploy to test2
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Deploy
+    task:
+      secrets:
+        - name: AWS_Credentials
+        - name: private-repo
+      jobs:
+        - name: Deploy
+          commands:
+            - chmod 0600 ~/.keys/*
+            - ssh-add ~/.keys/*
+            - checkout
+            - ./.semaphore/deploy.sh $SEMAPHORE_GIT_SHA awseb-e-3hxfcaypcj-stack

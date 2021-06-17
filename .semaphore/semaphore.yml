@@ -25,4 +25,4 @@ blocks:
             - 'bundle exec rake db:setup'
 promotions:
   - name: Deploy to Elastic Beanstalk Environment
-    pipeline_file: deploy.yml
+    pipeline_file: migrations.yml
