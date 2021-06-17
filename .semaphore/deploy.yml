@@ -5,12 +5,12 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: Migrations Deploy
+  - name: Deploy
     task:
       secrets:
         - name: AWS_CREDENTIALS
       jobs:
-        - name: Migrations Deploy
+        - name: Deploy
           commands:
             - checkout
-            - ./.semaphore/migrations.sh $SEMAPHORE_GIT_SHA migrationstest-v1
+            - ./.semaphore/migrations.sh $SEMAPHORE_GIT_SHA awseb-e-3hxfcaypcj-stack

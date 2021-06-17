@@ -26,5 +26,5 @@ blocks:
 promotions:
   - name: Perform Migrations
     pipeline_file: migrations.yml
-  - name: Deploy to UAT Environment
-    pipeline_file: deploy.yaml
+  - name: Deploy to ElasticBeanstalk Environment
+    pipeline_file: deploy.yml
