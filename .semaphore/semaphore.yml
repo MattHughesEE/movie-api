@@ -24,5 +24,7 @@ blocks:
             - psql -U postgres -h localhost -c "ALTER USER semaphore WITH SUPERUSER;"
             - 'bundle exec rake db:setup'
 promotions:
-  - name: Deploy to Elastic Beanstalk Environment
+  - name: Perform Migrations
     pipeline_file: migrations.yml
+  - name: Deploy to UAT Environment
+    pipeline_file: deploy.yaml
