@@ -13,6 +13,8 @@ gem uninstall bundler --all --executables
 gem install bundler --version 2.0.2 --no-document
 bundle install --jobs=2 --path=vendor/bundle
 sem-service start postgres
+psql -U postgres -h localhost -c "CREATE USER semaphore WITH PASSWORD 'lola1799';"
+psql -U postgres -h localhost -c "ALTER USER semaphore WITH SUPERUSER;"
 RAILS_ENV=production bundle exec rake db:create db:structure:load
 RAILS_ENV=production bundle exec rake assets:precompile
 
