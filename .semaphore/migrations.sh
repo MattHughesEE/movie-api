@@ -20,7 +20,7 @@ zip $file_name -9 -y -r . -x "spec/*" "tmp/*" "vendor/bundle/*" ".git/*"
 
 aws s3 cp $file_name s3://$S3_PUBLISH_BUCKET/migrations/$file_name
 
-parameters=`aws cloudformation describe-stacks --stack-name $stack_name | jq -r '.Stacks[].Parameters[].ParameterKey | select( . != "BundleKey")'`
+parameters=`aws cloudformation describe-stacks --region us-east-1 --stack-name $stack_name | jq -r '.Stacks[].Parameters[].ParameterKey | select( . != "BundleKey")'`
 
 echo "[" > params.json
 for parameter in $parameters; do
@@ -29,4 +29,4 @@ done
 echo "{\"ParameterKey\": \"BundleKey\", \"ParameterValue\": \"migrations/$file_name\"}" >> params.json
 echo "]" >> params.json
 
-aws cloudformation update-stack --stack-name $stack_name --use-previous-template --parameters file://params.json
+aws cloudformation update-stack --region us-east-1 --stack-name $stack_name --use-previous-template --parameters file://params.json
