@@ -12,7 +12,5 @@ blocks:
       jobs:
         - name: Deploy
           commands:
-            - chmod 0600 ~/.keys/*
-            - ssh-add ~/.keys/*
             - checkout
             - ./.semaphore/deploy.sh $SEMAPHORE_GIT_SHA awseb-e-3hxfcaypcj-stack
