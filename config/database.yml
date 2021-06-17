@@ -80,7 +80,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  adapter: pg
+  adapter: postgresql
   database: <%= ENV['RDS_DATABASE'] %>
   username: <%= ENV['RDS_USERNAME'] %>
   password: <%= ENV['RDS_PASSWORD'] %>
