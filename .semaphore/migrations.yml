@@ -13,4 +13,4 @@ blocks:
         - name: Migrations Deploy
           commands:
             - checkout
-            - ./.semaphore/migrations.sh $SEMAPHORE_GIT_SHA migrationstest-v1
+            - ./.semaphore/migrations.sh $SEMAPHORE_GIT_SHA migrationstest-v3
