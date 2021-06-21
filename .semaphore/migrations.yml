@@ -13,4 +13,4 @@ blocks:
         - name: Migrations Deploy
           commands:
             - checkout
-            - ./.semaphore/migrations.sh $SEMAPHORE_GIT_SHA awseb-e-3hxfcaypcj-stack
+            - ./.semaphore/migrations.sh $SEMAPHORE_GIT_SHA basicec2
