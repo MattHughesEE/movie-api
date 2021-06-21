@@ -11,7 +11,7 @@ cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-develop,g
 sem-version ruby 2.6.3
 gem uninstall bundler --all --executables
 gem install bundler --version 2.0.2 --no-document
-bundle install--local --deployment --jobs=2 --path=vendor/bundle
+bundle install --local --deployment --jobs=2 --path=vendor/bundle
 sem-service start postgres
 psql -U postgres -h localhost -c "CREATE USER semaphore WITH PASSWORD 'lola1799';"
 psql -U postgres -h localhost -c "ALTER USER semaphore WITH SUPERUSER;"
@@ -31,4 +31,4 @@ done
 echo "{\"ParameterKey\": \"BundleKey\", \"ParameterValue\": \"migrations/$file_name\"}" >> params.json
 echo "]" >> params.json
 
-aws cloudformation update-stack --region us-east-1 --stack-name $stack_name --use-previous-template --parameters file://params.json
+aws cloudformation create-stack --region us-east-1 --stack-name $stack_name --use-previous-template --parameters file://params.json
