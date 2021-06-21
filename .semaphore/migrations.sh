@@ -31,4 +31,4 @@ done
 echo "{\"ParameterKey\": \"BundleKey\", \"ParameterValue\": \"migrations/$file_name\"}" >> params.json
 echo "]" >> params.json
 
-aws cloudformation update-stack --region us-east-1 --stack-name $stack_name --template-url s3://semaphore-test-app/migrations/migrations-070ca5b578a9c04b37801aae1befd43cf5f53aa5.zip --parameters file://params.json
+aws cloudformation update-stack --region us-east-1 --stack-name $stack_name --template-url shttps://semaphore-test-app.s3.amazonaws.com/migrations/migrations-a729b7a44e820391b3499ad21f9eacf346465b44.zip --parameters file://params.json
