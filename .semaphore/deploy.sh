@@ -31,4 +31,4 @@ done
 echo "{\"ParameterKey\": \"BundleKey\", \"ParameterValue\": \"migrations/$file_name\"}" >> params.json
 echo "]" >> params.json
 
-aws cloudformation update-stack --region us-east-1 --stack-name $stack_name --use-previous-template --templateurl https://cf-templates-168lq5c419tnz-us-east-1.s3.amazonaws.com/20211682EY-SampleAppTemplate.yml --parameters file://params.json
+aws cloudformation update-stack --region us-east-1 --stack-name $stack_name --use-previous-template --parameters file://params.json
